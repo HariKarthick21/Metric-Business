@@ -1,0 +1,132 @@
+/* #1fde82 - Main_green
+#00002b - text_blue
+#ffffff - Back_white
+#2570ff - sect_blue
+#518dff - sect_back */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap');
+
+*{
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+    font-family: "Cormorant Garamond", serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul li {
+    list-style-type: none;
+}
+
+header a {
+    color: #000027;
+}
+
+/* Logo */
+.logo img {
+    width: 150px;
+    padding: 10px 10px;
+    margin: 0px 10px;
+}
+
+.mobicon {
+    /* font-size: 25px; */
+    padding: 10px;
+    display: none;
+}
+
+.logo {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/* Menu */
+.menu ul li {
+    display: inline-block;
+    padding: 10px;
+    margin: 13px;
+}
+
+.menu ul li a { 
+    font-size: 20px;
+}
+
+.sub_ser li, .sub_pag li {
+    display: block !important;
+    width: 180px;
+}
+
+.super_ser, .super_pag {
+    position: relative; 
+}
+
+.sub_ser, .sub_pag {
+    position: absolute;
+    top: 45px;
+    left: 0px;
+    display: none;
+}
+
+.menu ul li:hover{
+    background-color: rgb(222, 237, 250);
+    transition: 0.5s all ease-in-out;
+}
+
+.menu ul li:hover a{
+    color: #1fde82;
+    font-weight: 800;
+    transition: 0.5s all ease-in-out;
+}
+
+.super_ser:hover .sub_ser, .super_pag:hover .sub_pag {
+    display: block;
+}
+
+header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#sub {
+    border: 0.5px solid #000027;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+#sub:hover {
+    background-color: #1fde82;
+    color: #ffffff;
+}
+
+
+@media (min-width:320px) and (max-width:480px) {
+    .mobicon {
+        display: block;
+    }
+
+    header {
+        display: block;
+        position: relative;
+    }
+
+    .menu ul li {
+        display: block;
+    }
+
+    .menu {
+        background-color: rgb(222, 237, 250);
+        padding: 10px;
+        position: absolute;
+        width: 100%;
+    }
+
+    .sub_ser, .sub_pag{
+        background-color: rgb(222, 237, 250);
+        margin: 5px 0;
+    }
+}
