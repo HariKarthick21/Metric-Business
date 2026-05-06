@@ -15,13 +15,9 @@
 </head>
 <body>
     <header>
-        <div class="logo">  
-                <a href="#"><img src="Picture/PNG/Metric_logo.png" alt="logo"></a>
-            <div class="mobicon" id="menuBtn"> ☰
-                <!-- <svg  xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M3 5h18v2H3zm0 6h18v2H3zm0 6h18v2H3z"></path>
-                </svg> -->
-            </div>
+        <div class="logo">
+            <a href="#"><img src="Picture/PNG/Metric_logo.png" alt="logo"></a>
+            <div class="mobicon" id="menuBtn">☰</div>
         </div>
 
         <div class="menu" id="menuBar">
@@ -51,7 +47,7 @@
                                     <li><h3>Pages 2</h3></li>
                                     <li><a href="4.4_Metric_align.html">Grid system</a></li>
                                     <li><a href="4.1_Metric_privacy.html">Privacy policy</a></li>
-                                    <li><a href="#">Under Construction</a></li>
+                                    <li><a href="4.5_Metric_construction.html">Under Construction</a></li>
                                     <li><a href="4.2_Metric_team.html">Team</a></li>
                                     <li><a href="4.3_Metric_portfolio.html">Portfolio</a></li>
                                 </ul>
@@ -76,9 +72,7 @@
     </section>
 
     <section class="creative_grid">
-        <div class="n">
-            <h2>We provide a wide range <br>of creative services</h2>
-        </div>
+        <h1>We provide a wide range <br>of creative services</h1>
         <div class="ser_grid">
             <div class="gridbox">
                 <div class="symbol">
@@ -142,26 +136,6 @@
                 <p>Turn your data into captivating artwork that <br>will keep your audience engaged. Our team <br>can help you with it.</p>
                 <h3><a href="3.1_Metric_singleser.html">READ MORE ➜</a></h3>
             </div>
-            <div class="gridbox">
-                <div class="symbol">
-                    <svg  xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2C6.49 2 2 6.49 2 12s4.49 10 10 10 10-4.49 10-10S17.51 2 12 2M4 12c0-.9.16-1.76.43-2.57L6 11l2 2v2l2 2 1 1v1.93c-3.94-.49-7-3.86-7-7.93m14.33 4.87c-.65-.53-1.64-.87-2.33-.87v-1c0-1.1-.9-2-2-2h-4v-3c1.1 0 2-.9 2-2V7h1c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 1.83-.63 3.52-1.67 4.87"></path>
-                    </svg>
-                </div>
-                <h2>Content Management</h2>
-                <p>We help you organize your content on the <br>website, to engage more visitors and <br>potential clients.</p>
-                <h3><a href="3.1_Metric_singleser.html">READ MORE ➜</a></h3>
-            </div>
-            <div class="gridbox">
-                <div class="symbol">
-                    <svg  xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24" >
-                    <path d="M20 16.18V13c0-1.1-.9-2-2-2h-5V7.82c1.16-.41 2-1.51 2-2.82 0-1.65-1.35-3-3-3S9 3.35 9 5c0 1.3.84 2.4 2 2.82V11H6c-1.1 0-2 .9-2 2v3.18c-1.16.41-2 1.51-2 2.82 0 1.65 1.35 3 3 3s3-1.35 3-3c0-1.3-.84-2.4-2-2.82V13h5v3.18c-1.16.41-2 1.51-2 2.82 0 1.65 1.35 3 3 3s3-1.35 3-3c0-1.3-.84-2.4-2-2.82V13h5v3.18c-1.16.41-2 1.51-2 2.82 0 1.65 1.35 3 3 3s3-1.35 3-3c0-1.3-.84-2.4-2-2.82M12 4c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1M5 20c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1m7 0c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1m7 0c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1"></path>
-                    </svg>
-                </div>
-                <h2>E-Mail Marketing</h2>
-                <p>Our e-mail marketing services allow you to <br>reach out to your customers quickly, <br>easily, and efficiently.</p>
-                <h3><a href="3.1_Metric_singleser.html">READ MORE ➜</a></h3>
-            </div>
         </div>
     </section>
 
@@ -220,8 +194,8 @@
         </div>
     </footer>
 
-    <section class="footerbox"> 
-        <h2>©  2026 Metric.  All Rights Reserved.</h2>
+    <section class="footerbox">
+        <h2>&copy; <span id="year"></span> Metric. All rights reserved.</h2>
         <div class="foot_btn">
             <ul>
                 <li><a href="4.1_Metric_privacy.html">Privacy Policy</a></li>
@@ -236,6 +210,13 @@
         </svg>
     </a>
     
+    <div class="popup-overlay" id="popup">
+        <div class="popup-box">
+            <span class="popup-close" id="popupClose">✖</span>
+            <p id="popupMessage"></p>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>

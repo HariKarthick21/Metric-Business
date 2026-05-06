@@ -1,26 +1,68 @@
-// menu-------------------------------------------------------------------------------------------------------------------------------
-const menu = document.getElementById("menuBar");
-const menuBtn = document.getElementById("menuBtn");
+// menu -------------------------------------------------------------------------------------------------------------------------------
+document.addEventListener("DOMContentLoaded", () => {
+    const menuBtn = document.getElementById("menuBtn");
+    const menu = document.getElementById("menuBar");
 
-menuBtn.addEventListener("click", function(e){
-    e.stopPropagation();
-    menu.classList.toggle("open");
-    if(menu.classList.contains("open")){
-        menuBtn.textContent = "✖";
-    }else{
-        menuBtn.textContent = "☰";
+    if (menuBtn && menu) {
+        menuBtn.addEventListener("click", function(e){
+            e.stopPropagation();
+            menu.classList.toggle("open");
+
+            menuBtn.textContent = menu.classList.contains("open") ? "✖" : "☰";
+
+            if (!menu.classList.contains("open")) {
+                document.querySelectorAll(".super_ser, .super_pag")
+                    .forEach(el => el.classList.remove("active"));
+            }
+        });
     }
 });
-/* click anywhere outside */
+
+const menuBtn = document.getElementById("menuBtn");
+const menu = document.getElementById("menuBar");
 document.addEventListener("click", function(e){
-    if(!menu.contains(e.target) && !menuBtn.contains(e.target)){
+    if(menu && menuBtn && !menu.contains(e.target) && !menuBtn.contains(e.target)){
         menu.classList.remove("open");
-        menuBtn.textContent = "☰"; 
+        menuBtn.textContent = "☰";
+
+        document.querySelectorAll(".super_ser, .super_pag")
+            .forEach(el => el.classList.remove("active"));
     }
 });
 // -------------------------------------------------------------------------------------------------------------------------------------
 
-// form--------------------------------------------------------------------------------------------------------------------------------
+// Youtube video -----------------------------------------------------------------------------------------------------------------------
+document.addEventListener("DOMContentLoaded", function(){
+    const watchBtn = document.getElementById("watchVideo");
+    const modal = document.getElementById("videoModal");
+    const closeBtn = document.getElementById("closeVideo");
+    const frame = document.getElementById("videoFrame");
+
+    if (watchBtn && modal && closeBtn && frame) {
+
+        watchBtn.addEventListener("click", function(e){
+            e.preventDefault();
+            modal.classList.add("show");
+            frame.src = "https://www.youtube.com/embed/-AhmuMqZB0s";
+        });
+
+        closeBtn.addEventListener("click", function(){
+            modal.classList.remove("show");
+            frame.src = "";
+        });
+
+        modal.addEventListener("click", function(e){
+            if(e.target === modal){
+                modal.classList.remove("show");
+                frame.src = "";
+            }
+        });
+
+    }
+});
+// ------------------------------------------------------------------------------------------------------------------------------------
+
+// form --------------------------------------------------------------------------------------------------------------------------------
 document.addEventListener("DOMContentLoaded", function () {
 
     let MyForm = document.getElementById("MyData");
@@ -31,9 +73,9 @@ document.addEventListener("DOMContentLoaded", function () {
         const mobInput = document.getElementById("umob");
         const msgInput = document.getElementById("umes");
 
-        const err_name = document.getElementById("name_err"); 
-        const err_mob = document.getElementById("mob_err"); 
-        const err_mes = document.getElementById("mes_err"); 
+        const err_name = document.getElementById("name_err");
+        const err_mob = document.getElementById("mob_err");
+        const err_mes = document.getElementById("mes_err");
 
         MyForm.addEventListener("submit",(e)=>{
             e.preventDefault();
@@ -83,7 +125,7 @@ document.addEventListener("DOMContentLoaded", function () {
             else {
                 mobInput.classList.remove("error");
                 mobInput.classList.add("success");
-            } 
+            }
 
             // MESSAGE
             if (!User_Message) {
@@ -97,7 +139,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 msgInput.classList.add("error");
                 msgInput.classList.remove("success");
                 isFormValid = false;
-            } 
+            }
             else {
                 msgInput.classList.remove("error");
                 msgInput.classList.add("success");
@@ -111,7 +153,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     "Message": User_Message
                 };
 
-                alert(`Thank you ${User_Name}... Your form Submitted Successfully ✅`);
+                showPopup(`Thank you ${User_Name}... Your form Submitted Successfully ✅`);
                 console.log(User_Info);
                 MyForm.reset();
                 document.querySelectorAll("#MyData input, #MyData textarea").forEach(field => {
@@ -123,7 +165,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 // -------------------------------------------------------------------------------------------------------------------------------------
 
-// subscribe-------------------------------------------------------------------------------------------------------------------------------
+// subscribe ---------------------------------------------------------------------------------------------------------------------------
 document.addEventListener("DOMContentLoaded", function () {
     let SubBtn = document.getElementById("AgreeForm");
     if (SubBtn) {
@@ -156,7 +198,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (isMailValid) {
                 console.log({ "Email ID": User_Mail });
-                alert("Thank you! Your Mail Submitted Successfully ✅");
+                showPopup("Thank you! Your Mail Submitted Successfully ✅");
                 SubBtn.reset();
                 emailInput.classList.remove("error","success");
             }
@@ -165,7 +207,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 // -------------------------------------------------------------------------------------------------------------------------------------
 
-// recent project-------------------------------------------------------------------------------------------------------------------------------
+// recent project ----------------------------------------------------------------------------------------------------------------------
 document.addEventListener("DOMContentLoaded", () => {
     const track = document.getElementById("recentTrack");
     const nextBtn = document.getElementById("nextBtn");
@@ -199,37 +241,138 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 // -------------------------------------------------------------------------------------------------------------------------------------
 
-// DROPDOWN OPEN / CLOSE (ACCORDION)-------------------------------------------------------------------------------------------------------------------------------
-document.addEventListener("DOMContentLoaded", function(){
-    document.querySelectorAll(".drop").forEach(drop => {
+// DROPDOWN OPEN / CLOSE (ACCORDION) ---------------------------------------------------------------------------------------------------
+document.addEventListener("DOMContentLoaded", function () {
+    const drops = document.querySelectorAll(".drop");
+    drops.forEach(function(drop){
         drop.addEventListener("click", function(e){
+
             e.preventDefault();
             e.stopPropagation();
+
             const parent = this.closest(".super_ser, .super_pag");
-            // if already open → close it
-            if(parent.classList.contains("active")){
+
+            const isActive = parent.classList.contains("active");
+
+            if (isActive) {
                 parent.classList.remove("active");
-            } 
-            else{
-                // close all other dropdowns
+            } else {
                 document.querySelectorAll(".super_ser, .super_pag")
-                .forEach(menu => menu.classList.remove("active"));
-                // open current one
+                    .forEach(menu => menu.classList.remove("active"));
+
                 parent.classList.add("active");
             }
+
         });
     });
+
 });
 // -------------------------------------------------------------------------------------------------------------------------------------
 
-// SCROLL -------------------------------------------------------------------------------------------------------------------------------------
-window.addEventListener("scroll", function(){
-    const topBtn = document.querySelector(".top");
-    if(window.scrollY > 300){
-        topBtn.style.display = "flex";
-    } 
-    else{
-        topBtn.style.display = "none";
+// Construction time -------------------------------------------------------------------------------------------------------------------
+document.addEventListener("DOMContentLoaded", () => {
+    const startDate = new Date(2026, 4, 6, 0, 0, 0).getTime();
+
+    const circles = {
+        days: document.getElementById("daysCircle"),
+        hours: document.getElementById("hoursCircle"),
+        minutes: document.getElementById("minutesCircle"),
+        seconds: document.getElementById("secondsCircle")
+    };
+
+    const fullDash = 408;
+
+    function updateTimer() {
+        const now = new Date().getTime();
+        const gap = now - startDate;
+
+        if (gap < 0) return;
+
+        const second = 1000;
+        const minute = second * 60;
+        const hour = minute * 60;
+        const day = hour * 24;
+
+        const d = Math.floor(gap / day);
+        const h = Math.floor((gap % day) / hour);
+        const m = Math.floor((gap % hour) / minute);
+        const s = Math.floor((gap % minute) / second);
+
+        const daysEl = document.getElementById("days");
+        const hoursEl = document.getElementById("hours");
+        const minutesEl = document.getElementById("minutes");
+        const secondsEl = document.getElementById("seconds");
+
+        if(daysEl && hoursEl && minutesEl && secondsEl){
+            daysEl.innerText = d;
+            hoursEl.innerText = h;
+            minutesEl.innerText = m;
+            secondsEl.innerText = s;
+        }
+
+        if (circles.days) {
+            const dayProgress = (d % 365) / 365;
+            const hrProgress  = h / 24;
+            const minProgress = m / 60;
+            const secProgress = s / 60;
+
+            circles.days.style.strokeDashoffset    = fullDash * (1 - dayProgress);
+            circles.hours.style.strokeDashoffset   = fullDash * (1 - hrProgress);
+            circles.minutes.style.strokeDashoffset = fullDash * (1 - minProgress);
+            circles.seconds.style.strokeDashoffset = fullDash * (1 - secProgress);
+        }
+    }
+
+    setInterval(updateTimer, 1000);
+    updateTimer();
+});
+// -------------------------------------------------------------------------------------------------------------------------------------
+
+
+// Popup notification ------------------------------------------------------------------------------------------------------------------
+document.addEventListener("DOMContentLoaded", () => {
+
+    const popup = document.getElementById("popup");
+    const popupMsg = document.getElementById("popupMessage");
+    const popupClose = document.getElementById("popupClose");
+
+    if (popup && popupMsg && popupClose) {
+
+        window.showPopup = function(message) {
+            popupMsg.innerText = message;
+            popup.classList.add("show");
+        };
+
+        popupClose.addEventListener("click", () => {
+            popup.classList.remove("show");
+        });
+
+        popup.addEventListener("click", (e) => {
+            if (e.target === popup) {
+                popup.classList.remove("show");
+            }
+        });
     }
 });
+// -------------------------------------------------------------------------------------------------------------------------------------
+
+// footer year  ------------------------------------------------------------------------------------------------------------------------
+document.addEventListener("DOMContentLoaded", () => {
+    const year = document.getElementById("year");
+
+    if (year) {
+        const now = new Date();
+        year.innerText = now.getFullYear();
+    }
+});
+// -------------------------------------------------------------------------------------------------------------------------------------
+
+// SCROLL ------------------------------------------------------------------------------------------------------------------------------
+const topBtn = document.querySelector(".top");
+
+if (topBtn) {
+    window.addEventListener("scroll", function(){
+        topBtn.style.display = window.scrollY > 300 ? "flex" : "none";
+    });
+}
 // -------------------------------------------------------------------------------------------------------------------------------------

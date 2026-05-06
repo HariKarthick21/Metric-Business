@@ -15,13 +15,9 @@
 </head>
 <body>
     <header>
-        <div class="logo">  
-                <a href="#"><img src="Picture/PNG/Metric_logo.png" alt="logo"></a>
-            <div class="mobicon" id="menuBtn"> ☰
-                <!-- <svg  xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M3 5h18v2H3zm0 6h18v2H3zm0 6h18v2H3z"></path>
-                </svg> -->
-            </div>
+        <div class="logo">
+            <a href="#"><img src="Picture/PNG/Metric_logo.png" alt="logo"></a>
+            <div class="mobicon" id="menuBtn">☰</div>
         </div>
 
         <div class="menu" id="menuBar">
@@ -51,7 +47,7 @@
                                     <li><h3>Pages 2</h3></li>
                                     <li><a href="4.4_Metric_align.html">Grid system</a></li>
                                     <li><a href="4.1_Metric_privacy.html">Privacy policy</a></li>
-                                    <li><a href="#">Under Construction</a></li>
+                                    <li><a href="4.5_Metric_construction.html">Under Construction</a></li>
                                     <li><a href="4.2_Metric_team.html">Team</a></li>
                                     <li><a href="4.3_Metric_portfolio.html">Portfolio</a></li>
                                 </ul>
@@ -80,28 +76,27 @@
     <section class="single_ser">
         <div class="single_left">
             <img src="Picture/PNG/teach.png" alt="teach">
-            <h4>Providing efficient graphic design services to customers worldwide</h4> 
-            <p>Our award-winning graphic design shows up in logos, business cards, info-graphics, trade show booths, outdoor signage, way- 
-                finding signage, vehicle wraps and more. It can also be found in the digital marketing world. We offer graphic design for 
-                Application and Website’s User Interface ( UI ), PSDs, eBooks, Twitter backgrounds, Facebook cover photos, PowerPoint slides, 
-                HTML email templates and beyond. 
-                Our graphic design services can be found in videos from video entry and exit slides, lower thirds and 2D and 3D animations.</p>   
-            <h4>Our graphic design services include:</h4> 
-            <h4>Print, Brand & Digital Design</h4> 
-            <p>The experience of interacting with a printed piece of communication is a powerful and lasting way to convey your 
-                message. Print communications take several shapes and sizes.</p> 
-            <h4>Brand & Logo Design</h4> 
-            <p>Brands are a powerful thing, comprised from the entire experience a person has with your organization. It is more 
-                than a logo or visual identity, however, your logo and identity design are the most recognizable elements of your 
-                brand.</p> 
-            <h4>Website & UI/UX Design</h4> 
-            <p>Every website or application’s sole purpose is user interaction and engagement. Through our methodology, we are 
-                able to create a strategy and visual style that is unique and connects with your users.</p> 
-            
-            <h4>We are ready to meet your needs.</h4> 
-            <p>We help our clients thrive in a time of noise and distraction by creating compelling brand, print, and web experiences that 
+            <h4>Providing efficient graphic design services to customers worldwide</h4>
+            <p>Our award-winning graphic design shows up in logos, business cards, info-graphics, trade show booths, outdoor signage, way-
+                finding signage, vehicle wraps and more. It can also be found in the digital marketing world. We offer graphic design for
+                Application and Website’s User Interface ( UI ), PSDs, eBooks, Twitter backgrounds, Facebook cover photos, PowerPoint slides,
+                HTML email templates and beyond.
+                Our graphic design services can be found in videos from video entry and exit slides, lower thirds and 2D and 3D animations.</p>
+            <h4>Our graphic design services include:</h4>
+            <h4>Print, Brand & Digital Design</h4>
+            <p>The experience of interacting with a printed piece of communication is a powerful and lasting way to convey your
+                message. Print communications take several shapes and sizes.</p>
+            <h4>Brand & Logo Design</h4>
+            <p>Brands are a powerful thing, comprised from the entire experience a person has with your organization. It is more
+                than a logo or visual identity, however, your logo and identity design are the most recognizable elements of your
+                brand.</p>
+            <h4>Website & UI/UX Design</h4>
+            <p>Every website or application’s sole purpose is user interaction and engagement. Through our methodology, we are
+                able to create a strategy and visual style that is unique and connects with your users.</p>
+            <h4>We are ready to meet your needs.</h4>
+            <p>We help our clients thrive in a time of noise and distraction by creating compelling brand, print, and web experiences that
                 compels people to act. We get behind their mission and help tell their story through strategy and creativity.</p>
-        </div>  
+        </div>
         <div class="single_right">
             <ul>
                 <li><a href="#">Web Design & Branding</a></li>
@@ -116,10 +111,8 @@
 
     <section class="company_pro">
         <div class="pro_right">
-            <h2>Why choose our <br>company for your <br>projects?</h2>
-            <p>We are a team of professional and enthusiastic people, who like what <br>
-                they do and are always in the process of growing and improving their <br>
-                skills.</p>
+            <h1>Why choose our <br>company for your <br>projects?</h1>
+            <p>We are a team of professional and enthusiastic people, who like what <br>they do and are always in the process of growing and improving their <br>skills.</p>
             <div class="get_btn">
                 <a href="3_Metric_services.html">GET A QUOTE</a>
             </div>
@@ -225,8 +218,8 @@
         </div>
     </footer>
 
-    <section class="footerbox"> 
-        <h2>©  2026 Metric.  All Rights Reserved.</h2>
+    <section class="footerbox">
+        <h2>&copy; <span id="year"></span> Metric. All rights reserved.</h2>
         <div class="foot_btn">
             <ul>
                 <li><a href="4.1_Metric_privacy.html">Privacy Policy</a></li>
@@ -241,6 +234,13 @@
         </svg>
     </a>
     
+    <div class="popup-overlay" id="popup">
+        <div class="popup-box">
+            <span class="popup-close" id="popupClose">✖</span>
+            <p id="popupMessage"></p>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>

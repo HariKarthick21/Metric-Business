@@ -15,13 +15,9 @@
 </head>
 <body>
     <header>
-        <div class="logo">  
-                <a href="#"><img src="Picture/PNG/Metric_logo.png" alt="logo"></a>
-            <div class="mobicon" id="menuBtn"> ☰
-                <!-- <svg  xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M3 5h18v2H3zm0 6h18v2H3zm0 6h18v2H3z"></path>
-                </svg> -->
-            </div>
+        <div class="logo">
+            <a href="#"><img src="Picture/PNG/Metric_logo.png" alt="logo"></a>
+            <div class="mobicon" id="menuBtn">☰</div>
         </div>
 
         <div class="menu" id="menuBar">
@@ -43,7 +39,7 @@
                                     <li><a href="4.4_Metric_align.html">Forms</a></li>
                                     <li><a href="4.4_Metric_align.html">Tabs and accordions</a></li>
                                     <li><a href="4.4_Metric_align.html">Progress bars</a></li>
-                                    <li><a href="4.4_Metric_align.html">Tables</a></li> 
+                                    <li><a href="4.4_Metric_align.html">Tables</a></li>
                                 </ul>
                             </div>
                             <div class="pag_col">
@@ -51,7 +47,7 @@
                                     <li><h3>Pages 2</h3></li>
                                     <li><a href="4.4_Metric_align.html">Grid system</a></li>
                                     <li><a href="4.1_Metric_privacy.html">Privacy policy</a></li>
-                                    <li><a href="#">Under Construction</a></li>
+                                    <li><a href="4.5_Metric_construction.html">Under Construction</a></li>
                                     <li><a href="4.2_Metric_team.html">Team</a></li>
                                     <li><a href="4.3_Metric_portfolio.html">Portfolio</a></li>
                                 </ul>
@@ -73,10 +69,23 @@
                 <div class="vid_btn">
                     <ul>
                         <li><a href="3_Metric_services.html">LEARN MORE</a></li>
-                        <li><a href="https://youtu.be/-AhmuMqZB0s" target="_blank">WATCH VIDEO &nbsp; ▶</a></li>
+                         <li><a href="#" id="watchVideo">WATCH VIDEO ▶</a></li>
                     </ul>
+                    <!-- VIDEO MODAL -->
+                    <div class="video-modal" id="videoModal">
+                        <div class="video-box">
+                            <span class="close-btn" id="closeVideo">✖</span>
+                            <iframe
+                                id="videoFrame"
+                                src=""
+                                frameborder="0"
+                                allow="autoplay; encrypted-media"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                    </div>
                 </div>
-        </div>  
+        </div>
         <div class="cre_right">
             <img src="Picture/PNG/Computer.png" alt="computer">
         </div>
@@ -99,9 +108,7 @@
     </section>
 
     <section class="creative_grid">
-        <div class="n">
-            <h2>We provide a wide range <br>of creative services</h2>
-        </div>
+        <h1>We provide a wide range <br>of creative services</h1>
         <div class="ser_grid">
             <div class="gridbox">
                 <div class="symbol">
@@ -204,7 +211,7 @@
             </div>
         </div>
         <div class="pro_right">
-            <h2>Why choose our <br>company for your <br>projects?</h2>
+            <h1>Why choose our <br>company for your <br>projects?</h1>
             <p>We are a team of professional and enthusiastic people, who like what <br>they do and are always in the process of growing and improving their <br>skills.</p>
             <div class="get_btn">
                 <a href="3_Metric_services.html">GET A QUOTE</a>
@@ -226,7 +233,7 @@
             <img class="arrow-1" src="Picture/PNG/arrow-1.png" alt="arr-1">
         </div>
         
-        <div class="pro_box" id="box-2">   
+        <div class="pro_box" id="box-2">
             <div class="pro_img">
                 <img src="Picture/PNG/Man_and_girl.png" alt="Man_and_Girl">
             </div>
@@ -410,8 +417,8 @@
         </div>
     </footer>
 
-    <section class="footerbox"> 
-        <h2>©  2026 Metric.  All Rights Reserved.</h2>
+    <section class="footerbox">
+        <h2>&copy; <span id="year"></span> Metric. All rights reserved.</h2>
         <div class="foot_btn">
             <ul>
                 <li><a href="4.1_Metric_privacy.html">Privacy Policy</a></li>
@@ -426,6 +433,13 @@
         </svg>
     </a>
     
+    <div class="popup-overlay" id="popup">
+        <div class="popup-box">
+            <span class="popup-close" id="popupClose">✖</span>
+            <p id="popupMessage"></p>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
