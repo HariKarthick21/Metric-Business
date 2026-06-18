@@ -1,0 +1,154 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}About Us | Metric{% endblock %}
+
+{% block content %}
+<section class="bread_com">
+    <h2>About us</h2>
+    <ul>
+        <li><a href="{% url 'index' %}">Home</a></li>
+        <li>/</li>
+        <li><h4>About us</h4></li>
+    </ul>
+</section>
+
+<section class="approach">
+    <div class="app_left">
+        <h1>We are a team with a <br>creative approach to <br>work</h1>
+        <p>Our designers and developers work closely together to build a creative and <br>positive working environment. Functionality is as important to us as <br>aesthetics.</p>
+        <div class="app_btn">
+            <a href="{% url 'contact' %}">CONTACT US</a>
+        </div>
+    </div>
+    <div class="app_right">
+        <img src="{% static 'images/currency.png' %}" alt="currency">
+    </div>
+</section>
+
+<section class="team">
+    <div class="team_left">
+        <div class="team1">
+            <img src="{% static 'images/icon-1.png' %}" alt="zoom">
+            <p>We Always Analyze The <br>Market</p>
+        </div>
+        <div class="team2">
+            <img src="{% static 'images/icon-2.png' %}" alt="bulb">
+            <p>We Have The Most Brilliant <br>Ideas</p>
+        </div>
+        <div class="team3">
+            <img src="{% static 'images/icon-3.png' %}" alt="aim">
+            <p>We Always Make <br>Successful Projects</p>
+        </div>
+    </div>
+    <div class="team_right">
+        <h1>Teamwork is the key <br>to a successful <br>product</h1>
+        <p>Our team plays a great role in the creative and technical work we <br>produce.</p>
+    </div>
+</section>
+
+<section class="company_pro">
+    <div class="pro_right">
+        <h1>Why choose our <br>company for your <br>projects?</h1>
+        <p>We are a team of professional and enthusiastic people, who like what <br>they do and are always in the process of growing and improving their <br>skills.</p>
+        <div class="get_btn">
+            <a href="{% url 'services' %}">GET A QUOTE</a>
+        </div>
+    </div>
+    <div class="pro_left">
+        <div class="num_box">
+            <h2>1880+</h2>
+            <p>Projects completed by our team <br>of web designers and developers.</p>
+        </div>
+        <div class="num_box">
+            <h2>56</h2>
+            <p>Experts in web design, branding, <br>and digital marketing solutions.</p>
+        </div>
+        <div class="num_box">
+            <h2>2000+</h2>
+            <p>Customers who were satisfied <br>with our work.</p>
+        </div>
+        <div class="num_box">
+            <h2>100%</h2>
+            <p>Positive reviews sent by our first-<br>time and regular customers.</p>
+        </div>
+    </div>
+</section>
+
+<section class="process">
+    <h2>Our work process</h2>
+    <div class="pro_box" id="box-1">
+        <div class="pro_img">
+            <img src="{% static 'images/Two_mens.png' %}"alt="Two_mens">
+        </div>
+        <div class="pro_num" id="pro-1">01</div>
+        <div class="pro_con">
+            <h3>Meeting With The Customer</h3>
+            <p>The first meeting is very important to get acquainted and discuss the <br>main ideas of the project.</p>
+        </div>
+        <img class="arrow-1" src="{% static 'images/arrow-1.png' %}" alt="arr-1">
+    </div>
+
+    <div class="pro_box" id="box-2">
+        <div class="pro_img">
+            <img src="{% static 'images/Man_and_girl.png' %}" alt="Man_and_Girl">
+        </div>
+        <div class="pro_con">
+            <h3>We Consider And Analyze The <br>Work Plan</h3>
+            <p>When we understand the main ideas, we proceed to <br>discuss the work plan and analyze it.</p>
+        </div>
+        <div class="pro_num" id="pro-2">02</div>
+        <img class="arrow-2" src="{% static 'images/arrow-2.png' %}" alt="arr-2">
+    </div>
+
+    <div class="pro_box" id="box-3">
+        <div class="pro_img">
+            <img src="{% static 'images/Gang_mens.png' %}" alt="Gang_mens">
+        </div>
+        <div class="pro_num" id="pro-3">03</div>
+        <div class="pro_con">
+            <h3>Work Hard On The Project</h3>
+            <p>Our professional team starts to work on your project and embody all <br>details of the initial concept.</p>
+        </div>
+        <img class="arrow-3" src="{% static 'images/arrow-3.png' %}" alt="arr-3">
+    </div>
+
+    <div class="pro_box" id="box-4">
+        <div class="pro_img">
+            <img src="{% static 'images/Statics.png' %}" alt="Statics">
+        </div>
+        <div class="pro_con">
+            <h3>Once Again We Analyze And Check <br>Everything</h3>
+            <p>We meet, analyze and check the work we done on the project and <br>make any necessary changes.</p>
+        </div>
+        <div class="pro_num" id="pro-4">04</div>
+        <img class="arrow-4" src="{% static 'images/arrow-4.png' %}" alt="arr-4">
+    </div>
+    <div class="pro_box" id="box-5">
+        <div class="pro_img">
+            <img src="{% static 'images/Clap_men.png' %}" alt="Clap_men">
+        </div>
+        <div class="pro_num" id="pro-5">05</div>
+        <div class="pro_con">
+            <h3>We Finish The Project And Send It To The <br>Customer</h3>
+            <p>The project is completed and we give it to our customer. We also ask <br>for customer’s feedback.</p>
+        </div>
+    </div>
+</section>
+
+<section class="subscribe" id="agree">
+    <h3>Subscribe to our news <br> and regular updates</h3>
+    <form method="POST" class="sub_in" id="AgreeForm">
+        {% csrf_token %}
+        <div class="input">
+            <input type="text" id="uemail" name="email" placeholder="Your Email" value="{{ sub_form.email.value|default:'' }}" class="{% if sub_form.email.errors %}error{% endif %}">
+        </div>
+        <div class="sub_btn">
+            <button type="submit" name="subscribe_btn">SUBSCRIBE</button>
+        </div>
+    </form>
+    <p id="mail_err">{{ sub_form.email.errors }}</p>
+    {% if subscribe_success %}
+    <div id="success-subscribe" data-message="{{ subscribe_success|escapejs }}"></div>
+    {% endif %}
+</section>
+{% endblock %}

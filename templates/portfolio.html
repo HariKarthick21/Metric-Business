@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Portfolio | Metric{% endblock %}
+
+{% block content %}
+<section class="bread_com">
+    <h2>Portfolio</h2>
+        <ul>
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li>/</li>
+            <li><a href="#">Pages</a></li>
+            <li>/</li>
+            <li><h3>Portfolio</h3></li>
+        </ul>
+</section>
+
+<section class="creative_cha">
+    <div class="create_left">
+        <img src="{% static 'images/Brain.png' %}" alt="brain">
+    </div>
+    <div class="create_right">
+        <h1>Creative challenges are <br>our passion</h1>
+        <p>Our designers and developers work closely together to build a creative and <br>positive working environment. Functionality is as important to us as <br> aesthetics.</p>
+        <div class="con_btn">
+            <ul>
+                <li><a href="{% url 'about' %}">READ MORE</a></li>
+                <li><a href="{% url 'contact' %}">CONTACT US</a></li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="assignment">
+    <div class="assign_head">
+        <h2>Recent projects we have <br>worked on</h2>
+    </div>
+
+    <div class="assign_photos">
+        <div class="assign_post">
+            <img src="{% static 'images/1_Poster_man.png' %}" alt="man">
+            <p><strong>Pupils</strong> - Consulting Company</p>
+        </div>
+
+        <div class="assign_post">
+            <img src="{% static 'images/2_Poster_pizza.png' %}" alt="pizza">
+            <p><strong>Little Italy</strong> - Restaurant</p>
+        </div>
+
+        <div class="assign_post">
+            <img src="{% static 'images/3_Poster_car.png' %}" alt="car">
+            <p><strong>Auto Quarter</strong> - Car Repair Workshop</p>
+        </div>
+
+        <div class="assign_post">
+            <img src="{% static 'images/4_Poster_house.png' %}" alt="house">
+            <p><strong>Tour Up</strong> - Travel Agency</p>
+        </div>
+
+        <div class="assign_post">
+            <img src="{% static 'images/5_Poster_gallery.png' %}" alt="gallery">
+            <p><strong>News</strong> - Business News Portal</p>
+        </div>
+    </div>
+</section>
+
+<section class="subscribe" id="agree">
+    <h3>Subscribe to our news <br> and regular updates</h3>
+    <form method="POST" class="sub_in" id="AgreeForm">
+        {% csrf_token %}
+        <div class="input">
+            <input type="text" id="uemail" name="email" placeholder="Your Email" value="{{ sub_form.email.value|default:'' }}" class="{% if sub_form.email.errors %}error{% endif %}">
+        </div>
+        <div class="sub_btn">
+            <button type="submit" name="subscribe_btn">SUBSCRIBE</button>
+        </div>
+    </form>
+    <p id="mail_err">{{ sub_form.email.errors }}</p>
+    {% if subscribe_success %}
+    <div id="success-subscribe" data-message="{{ subscribe_success|escapejs }}"></div>
+    {% endif %}
+</section>
+{% endblock %}

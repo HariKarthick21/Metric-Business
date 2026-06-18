@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Alignment | Metric{% endblock %}
+
+{% block content %}
+<section class="bread_com">
+    <h2>Alignments</h2>
+    <ul>
+        <li><a href="{% url 'index' %}">Home</a></li>
+        <li>/</li>
+        <li><h4>Alignments</h4></li>
+    </ul>
+</section>
+
+<section class="typography">
+    <h1 id="ty">Typography</h1>
+    <div class="graphy">
+        <div class="typo-left">
+            <h1>H1 Heading</h1>
+            <p>Welcome to our wonderful world. We sincerely hope that each and every user entering our website will find exactly what <br>
+                he/she is looking for. With advanced features of activating account and new login widgets, you will definitely have a great <br>
+                experience of using our web page.</p>
+            <h2>H2 Heading</h2>
+            <p>Welcome to our wonderful world. We sincerely hope that each and every user entering our website will find exactly what <br>
+                he/she is looking for. With advanced features of activating account and new login widgets, you will definitely have a great <br>
+                experience of using our web page.</p>
+            <h3>H3 Heading</h3>
+            <p>Welcome to our wonderful world. We sincerely hope that each and every user entering our website will find exactly what <br>
+                he/she is looking for. With advanced features of activating account and new login widgets, you will definitely have a great <br>
+                experience of using our web page.</p>
+            <h4>H4 Heading</h4>
+            <p>Welcome to our wonderful world. We sincerely hope that each and every user entering our website will find exactly what <br>
+                he/she is looking for. With advanced features of activating account and new login widgets, you will definitely have a great <br>
+                experience of using our web page.</p>
+            <h5>H5 Heading</h5>
+            <p>Welcome to our wonderful world. We sincerely hope that each and every user entering our website will find exactly what <br>
+                he/she is looking for. With advanced features of activating account and new login widgets, you will definitely have a great <br>
+                experience of using our web page.</p>
+            <h6>H6 Heading</h6>
+            <p>Welcome to our wonderful world. We sincerely hope that each and every user entering our website will find exactly what <br>
+                he/she is looking for. With advanced features of activating account and new login widgets, you will definitely have a great <br>
+                experience of using our web page.</p>
+        </div>
+
+        <div class="typo-right">
+            <h1>H1 Heading</h1>
+            <h2>H2 Heading</h2>
+            <h3>H3 Heading</h3>
+            <h4>H4 Heading</h4>
+            <h5>H5 Heading</h5>
+            <h6>H6 Heading</h6>
+        </div>
+    </div>
+</section>
+
+<section class="switch">
+    <h1>Button Sizes</h1>
+    <p>4 different sizes: super, large, default and small.</p>
+    <div class="switch-btns">
+        <button id="sup_size">SUPER SIZE</button>
+        <button id="lar_size">LARGE SIZE</button>
+        <button id="def_size">DEFAULT SIZE</button>
+        <button id="sml_size">SMALL SIZE</button>
+    </div>
+</section>
+
+<section class="subscribe" id="agree">
+    <h3>Subscribe to our news <br> and regular updates</h3>
+    <form method="POST" class="sub_in" id="AgreeForm">
+        {% csrf_token %}
+        <div class="input">
+            <input type="text" id="uemail" name="email" placeholder="Your Email" value="{{ sub_form.email.value|default:'' }}" class="{% if sub_form.email.errors %}error{% endif %}">
+        </div>
+        <div class="sub_btn">
+            <button type="submit" name="subscribe_btn">SUBSCRIBE</button>
+        </div>
+    </form>
+    <p id="mail_err">{{ sub_form.email.errors }}</p>
+    {% if subscribe_success %}
+    <div id="success-subscribe" data-message="{{ subscribe_success|escapejs }}"></div>
+    {% endif %}
+</section>
+{% endblock %}

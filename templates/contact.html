@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Contact | Metric{% endblock %}
+
+{% block content %}
+<section class="bread_com">
+    <h2>Contact us</h2>
+    <ul>
+        <li><a href="{% url 'index' %}">Home</a></li>
+        <li>/</li>
+        <li><h4>Contact</h4></li>
+    </ul>
+</section>
+
+<section class="feedback">
+    <div class="feed_left">
+        <img src="{% static 'images/Chats.png' %}" alt="Chats">
+    </div>
+    <div class="feed_right">
+        <form method="POST" id="MyData">
+            {% csrf_token %}
+            <h3>Get in touch with <br>our team</h3>
+            <div class="input">
+                <input type="text" id="uname" name="name" placeholder="Your Name" value="{{ form.name.value|default:'' }}">
+                <p id="name_err">{{ form.name.errors }}</p>
+            </div>
+            <div class="input">
+                <input type="text" id="umob" name="mobile" placeholder="Your Mobile" value="{{ form.mobile.value|default:'' }}">
+                <p id="mob_err">{{ form.mobile.errors }}</p>
+            </div>
+            <div class="input">
+                <textarea id="umes" name="message" placeholder="Your Message">{{ form.message.value|default:'' }}</textarea>
+                <p id="mes_err">{{ form.message.errors }}</p>
+            </div>
+            <div class="input">
+                <button type="submit" name="contact_btn">SEND</button>
+            </div>
+        </form>
+            {% if success_message %}
+            <div id="success-data" data-message="{{ success_message|escapejs }}"></div>
+            {% endif %}
+    </div>
+</section>
+
+<section class="subscribe" id="agree">
+    <h3>Subscribe to our news <br> and regular updates</h3>
+    <form method="POST" class="sub_in" id="AgreeForm">
+        {% csrf_token %}
+        <div class="input">
+            <input type="text" id="uemail" name="email" placeholder="Your Email" value="{{ sub_form.email.value|default:'' }}" class="{% if sub_form.email.errors %}error{% endif %}">
+        </div>
+        <div class="sub_btn">
+            <button type="submit" name="subscribe_btn">SUBSCRIBE</button>
+        </div>
+    </form>
+    <p id="mail_err">{{ sub_form.email.errors }}</p>
+    {% if subscribe_success %}
+    <div id="success-subscribe" data-message="{{ subscribe_success|escapejs }}"></div>
+    {% endif %}
+</section>
+{% endblock %}

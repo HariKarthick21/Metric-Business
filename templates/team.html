@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Team | Metric{% endblock %}
+
+{% block content %}
+<section class="bread_com">
+    <h2>Team</h2>
+    <ul>
+        <li><a href="{% url 'index' %}">Home</a></li>
+        <li>/</li>
+        <li><a href="#">Pages</a></li>
+        <li>/</li>
+        <li><h3>Team</h3></li>
+    </ul>
+</section>
+
+<section class="team_grid">
+    <div class="team_mems">
+        {% for member in members %}
+        <div class="team-box">
+            <img src="{{ member.image.url }}" alt="{{ member.name }}">
+            <h3>{{ member.name }}</h3>
+            <p>{{ member.role }}</p>
+
+            <div class="media-btns">
+                <ul>
+                    {% if member.facebook %}
+                    <li>
+                        <a href="{{ member.facebook }}" target="_blank">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                    </li>
+                    {% endif %}
+
+                    {% if member.instagram %}
+                    <li>
+                        <a href="{{ member.instagram }}" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </li>
+                    {% endif %}
+
+                    {% if member.linkedin %}
+                    <li>
+                        <a href="{{ member.linkedin }}" target="_blank">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<section class="subscribe" id="agree">
+    <h3>Subscribe to our news <br> and regular updates</h3>
+    <form method="POST" class="sub_in" id="AgreeForm">
+        {% csrf_token %}
+        <div class="input">
+            <input type="text" id="uemail" name="email" placeholder="Your Email" value="{{ sub_form.email.value|default:'' }}" class="{% if sub_form.email.errors %}error{% endif %}">
+        </div>
+        <div class="sub_btn">
+            <button type="submit" name="subscribe_btn">SUBSCRIBE</button>
+        </div>
+    </form>
+    <p id="mail_err">{{ sub_form.email.errors }}</p>
+    {% if subscribe_success %}
+    <div id="success-subscribe" data-message="{{ subscribe_success|escapejs }}"></div>
+    {% endif %}
+</section>
+{% endblock %}

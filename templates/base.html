@@ -1,0 +1,143 @@
+    <!DOCTYPE html>
+    {% load static %}
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Metric is a web-based metric calculation and data management system designed to collect user form inputs, process statistical fields, and store transaction records securely in a database.">
+        <meta name="author" content="Metric">
+        <title>{% block title %}Metric{% endblock %}</title>
+        <link rel="icon" href="{% static 'images/Metric.png' %}" type="image/png">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <!-- Icons -->
+        <link href="https://cdn.boxicons.com/3.0.8/fonts/basic/boxicons.min.css" rel="stylesheet">
+        <link href="https://cdn.boxicons.com/3.0.8/fonts/filled/boxicons-filled.min.css" rel="stylesheet">
+        <link href="https://cdn.boxicons.com/3.0.8/fonts/brands/boxicons-brands.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    </head>
+    <body>
+    <!-- MENU -->
+    <header>
+        <div class="logo">
+            <a href="{% url 'index' %}"><img src="{% static 'images/Metric_logo.png' %}" alt="logo"></a>
+            <div class="mobicon" id="menuBtn">☰</div>
+        </div>
+
+        <div class="menu" id="menuBar">
+                <ul>
+                    <li><a href="{% url 'index' %}">Home</a></li>
+                    <li><a href="{% url 'about' %}">About Us</a></li>
+                    <li class="super_ser"><div class="menu-title"><a href="{% url 'services' %}">Services</a><span class="drop"></span></div>
+                        <ul class="sub_ser">
+                            <li><a href="{% url 'single_service' %}">Single Services</a></li>
+                        </ul>
+                    </li>
+                    <li class="super_pag"><div class="menu-title"><a href="#">Pages</a><span class="drop"></span></div>
+                        <div class="sub_pag">
+                            <div class="pag_col">
+                                <ul>
+                                    <li><h3>Pages 1</h3></li>
+                                    <li><a href="{% url 'alignment' %}">Typography</a></li>
+                                    <li><a href="{% url 'alignment' %}">Buttons</a></li>
+                                    <li><a href="{% url 'alignment' %}">Forms</a></li>
+                                    <li><a href="{% url 'alignment' %}">Tabs & Accordions</a></li>
+                                    <li><a href="{% url 'alignment' %}">Progress Bars</a></li>
+                                    <li><a href="{% url 'alignment' %}">Tables</a></li>
+                                </ul>
+                            </div>
+                            <div class="pag_col">
+                                <ul>
+                                    <li><h3>Pages 2</h3></li>
+                                    <li><a href="{% url 'alignment' %}">Grid System</a></li>
+                                    <li><a href="{% url 'privacy' %}">Privacy Policy</a></li>
+                                    <li><a href="{% url 'construction' %}">Under Construction</a></li>
+                                    <li><a href="{% url 'team' %}">Team</a></li>
+                                    <li><a href="{% url 'portfolio' %}">Portfolio</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="{% url 'contact' %}">Contacts</a></li>
+                </ul>
+            <div class="sub">
+                <a href="#agree">SUBSCRIBE</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    {% block content %}
+    {% endblock %}
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="call">
+            <img src="{% static 'images/Metric_logo.png' %}" alt="logo">
+            <ul>
+                <li>Phone:  <a href="#">+ 1 (045) - 224 - 12 - 67</a></li>
+                <li>Mail:  <a href="mailto:info@demolink.org">info@demolink.org</a></li>
+            </ul>
+        </div>
+        <div class="facility">
+            <h2>Services</h2>
+            <ul>
+                <li><a href="{% url 'single_service' %}">Web Design & Branding</a></li>
+                <li><a href="{% url 'single_service' %}">Graphic Design</a></li>
+                <li><a href="{% url 'single_service' %}">Video Production</a></li>
+                <li><a href="{% url 'single_service' %}">SEO</a></li>
+                <li><a href="{% url 'single_service' %}">Digital Marketing</a></li>
+                <li><a href="{% url 'single_service' %}">Infographics</a></li>
+            </ul>
+        </div>
+        <div class="abt_com">
+            <h2>About Company</h2>
+            <ul>
+                <li><a href="{% url 'about' %}">About us</a></li>
+                <li><a href="{% url 'team' %}">Team</a></li>
+                <li><a href="{% url 'portfolio' %}">Portfolio</a></li>
+                <li><a href="{% url 'single_service' %}">Pricing</a></li>
+            </ul>
+        </div>
+        <div class="social">
+            <h2>Our Social Networks</h2>
+            <p>Join us in the social networks to receive <br> the latest news and updates.</p>
+            <div class="imgs">
+                <ul>
+                    <li><a href="#"><img src="{% static 'images/Youtube.png' %}" alt="youtube"></a></li>
+                    <li><a href="#"><img src="{% static 'images/Facebook.png' %}" alt="facebook"></a></li>
+                    <li><a href="#"><img src="{% static 'images/Instagram.png' %}" alt="instagram"></a></li>
+                    <li><a href="#"><img src="{% static 'images/Twitter.png' %}" alt="twitter"></a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <section class="footerbox">
+        <h2>&copy; <span id="year"></span> Metric. All rights reserved.</h2>
+        <div class="foot_btn">
+            <ul>
+                <li><a href="{% url 'privacy' %}">Privacy Policy</a></li>
+                <li><a href="#">FAQ</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Scroll Top -->
+    <a href="#" class="top">
+        <svg  xmlns="http://www.w3.org/2000/svg" width="24" height="24"fill="currentColor" viewBox="0 0 24 24" >
+            <path d="m7.71 15.71 4.29-4.3 4.29 4.3 1.42-1.42L12 8.59l-5.71 5.7z"></path>
+        </svg>
+    </a>
+
+    <!-- Popup -->
+    <div class="popup-overlay" id="popup">
+        <div class="popup-box">
+            <span class="popup-close" id="popupClose">✖</span>
+            <p id="popupMessage"></p>
+        </div>
+    </div>
+
+    <!-- JS -->
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>
